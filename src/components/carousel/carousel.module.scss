@@ -1,0 +1,58 @@
+// can't use css next at create-react-app, if not change config.
+$bannerH: 400px;
+.carousel {
+  position: relative;
+  width: 100%;
+  height: $bannerH;
+  min-width: 1200px;
+  overflow: hidden;
+
+  // banner 
+  .container {
+    // width: 100%;
+    display: flex;
+    flex-wrap: nowrap;
+    transition: all ease-in .3s;
+    >div {
+      display: block;
+      width: 100%;
+      height: $bannerH;
+      overflow: hidden;
+    }
+  }
+
+  // 位置标识
+  .dot {
+    position: absolute;
+    bottom: 40px;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    .item {
+      width: 30px;
+      height: 2px;
+      z-index: 2;
+      margin: 10px;
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+      background-color: rgba(142, 128, 128, .8);
+
+      &::after {
+        content: '';
+        height: 2px;
+        display: block;
+        width: 100%;
+        position: absolute;
+        top: 0;
+        right: 100%;
+        background-color: white;
+      }
+      &.active::after {
+        transition: all linear 3s;
+        transform: translateX(100%);
+      }
+    }
+  }
+}
